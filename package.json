@@ -1,0 +1,16 @@
+{
+  "name": "barbearia-to-em-casa",
+  "version": "1.0.0",
+  "description": "Site institucional moderno, minimalista e premium para a Barbearia Tô em Casa",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  },
+  "author": "Barbearia Tô em Casa",
+  "license": "MIT"
+}

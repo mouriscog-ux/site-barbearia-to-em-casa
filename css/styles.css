@@ -1,0 +1,493 @@
+/* ===================================================================
+   BARBEARIA TÔ EM CASA — DESIGN SYSTEM & ESTILOS PRINCIPAIS
+   Estética: Modern Minimalism & Luxury Grooming
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap');
+
+:root {
+  /* Cores Base */
+  --bg-primary: #09090b;
+  --bg-secondary: #121215;
+  --bg-tertiary: #18181b;
+  --bg-card: #141418;
+  --bg-card-hover: #1c1c22;
+  
+  /* Cores de Acento */
+  --accent-gold: #D4AF37;
+  --accent-gold-light: #E7C96B;
+  --accent-gold-dark: #A68523;
+  --accent-gold-glow: rgba(212, 175, 55, 0.18);
+  
+  /* Tipografia */
+  --text-primary: #FAF9F6;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  
+  /* Bordas e Sombras */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(212, 175, 55, 0.4);
+  --border-active: #D4AF37;
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 25px rgba(212, 175, 55, 0.2);
+  
+  /* Fontes */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Transições */
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Reset Básico e Scroll */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.6;
+  background-color: var(--bg-primary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+/* Seleção de Texto */
+::selection {
+  background-color: var(--accent-gold);
+  color: #000;
+}
+
+/* Utilitários Tipográficos */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-gold {
+  color: var(--accent-gold);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FFF 0%, #D4AF37 50%, #A68523 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Pré-carregador / Curtain Entrance */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background-color: #050507;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.preloader-logo {
+  position: relative;
+  overflow: hidden;
+}
+
+.preloader-line {
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  margin-top: 1.5rem;
+  transition: width 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Header & Navbar Glassmorphism */
+.header-glass {
+  background: rgba(9, 9, 11, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: var(--transition-smooth);
+}
+
+.header-scrolled {
+  background: rgba(9, 9, 11, 0.92);
+  border-bottom-color: rgba(212, 175, 55, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Botões Customizados */
+.btn-primary {
+  background: linear-gradient(135deg, #E7C96B 0%, #D4AF37 50%, #B89228 100%);
+  color: #0A0A0B;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border-subtle);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+/* Hero Section & Video */
+.hero-video-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.65) contrast(1.1);
+  transform: scale(1.04);
+  transition: transform 8s ease-out;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 9, 11, 0.7) 0%,
+    rgba(9, 9, 11, 0.4) 40%,
+    rgba(9, 9, 11, 0.85) 85%,
+    #09090b 100%
+  );
+  z-index: 2;
+}
+
+/* Cards & Containers com Borda Suave */
+.luxury-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7), var(--shadow-glow);
+}
+
+/* Imagens com Zoom Suave */
+.img-zoom-container {
+  overflow: hidden;
+}
+
+.img-zoom-container img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-zoom-container:hover img {
+  transform: scale(1.06);
+}
+
+/* Tags e Badges */
+.badge-gold {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--accent-gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Etapas do Agendamento (Wizard) */
+.step-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.step-circle {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: #18181b;
+  border: 2px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: var(--transition-bounce);
+  z-index: 2;
+}
+
+.step-item.active .step-circle {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #0A0A0B;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  transform: scale(1.1);
+}
+
+.step-item.completed .step-circle {
+  background: #1e1e24;
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.step-line {
+  position: absolute;
+  top: 1.35rem;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--border-subtle);
+  z-index: 1;
+}
+
+.step-item:last-child .step-line {
+  display: none;
+}
+
+.step-item.completed .step-line {
+  background: var(--accent-gold);
+}
+
+/* Cards Selecionáveis do Agendamento */
+.selectable-card {
+  border: 1.5px solid var(--border-subtle);
+  background: var(--bg-card);
+  border-radius: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.selectable-card:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  background: #1c1c22;
+}
+
+.selectable-card.selected {
+  border-color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.08);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+/* Time Slots */
+.time-slot-btn {
+  padding: 0.65rem 1rem;
+  border-radius: 0.5rem;
+  background: #18181b;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.time-slot-btn:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.time-slot-btn.selected {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #0A0A0B;
+  font-weight: 700;
+}
+
+/* Calendar Day Buttons */
+.cal-day-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: 1px solid transparent;
+}
+
+.cal-day-btn:hover:not(:disabled) {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.cal-day-btn.selected {
+  background: var(--accent-gold);
+  color: #000;
+  font-weight: 700;
+}
+
+.cal-day-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.lightbox-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Toast Notification */
+.toast-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.toast {
+  background: #18181b;
+  border: 1px solid var(--accent-gold);
+  color: #FFF;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+  max-width: 380px;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Efeito de Máscara de Revelação de Texto GSAP */
+.split-reveal {
+  overflow: hidden;
+}
+
+.split-reveal-inner {
+  display: inline-block;
+  transform: translateY(105%);
+}
+
+/* Efeito Glow Circulante */
+.glow-accent {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(40px);
+}

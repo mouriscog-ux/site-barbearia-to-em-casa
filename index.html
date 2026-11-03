@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbearia Tô em Casa — Estilo, Conforto e Tradição</title>
+  <meta name="description" content="Barbearia Tô em Casa: corte moderno, barboterapia, visagismo e lounge exclusivo. Sinta-se em casa enquanto cuida do seu visual. Agende seu horário online.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#09090b',
+              dark: '#121215',
+              surface: '#18181b',
+              gold: '#D4AF37',
+              goldLight: '#E7C96B',
+              goldDark: '#A68523',
+              cream: '#FAF9F6',
+              gray: '#A1A1AA'
+            }
+          },
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS Customizado -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-brand-black text-brand-cream antialiased selection:bg-brand-gold selection:text-black">
+
+  <!-- 0. Pré-carregador Cinematográfico -->
+  <div id="preloader">
+    <div class="preloader-logo text-center">
+      <img src="assets/icons/logo.svg" alt="Barbearia Tô em Casa" class="h-16 w-auto mx-auto mb-2">
+      <div class="preloader-line"></div>
+    </div>
+  </div>
+
+  <!-- Toast Container para Notificações -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- 1. Header / Navbar -->
+  <header id="main-navbar" class="fixed top-0 left-0 w-full z-50 header-glass">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center space-x-3 group">
+        <img src="assets/icons/logo.svg" alt="Barbearia Tô em Casa" class="h-11 w-auto transition-transform duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+        <a href="#sobre" class="text-zinc-300 hover:text-brand-gold transition-colors">Sobre</a>
+        <a href="#servicos" class="text-zinc-300 hover:text-brand-gold transition-colors">Serviços</a>
+        <a href="#galeria" class="text-zinc-300 hover:text-brand-gold transition-colors">Galeria</a>
+        <a href="#profissionais" class="text-zinc-300 hover:text-brand-gold transition-colors">Barbeiros</a>
+        <a href="#depoimentos" class="text-zinc-300 hover:text-brand-gold transition-colors">Avaliações</a>
+        <a href="#localizacao" class="text-zinc-300 hover:text-brand-gold transition-colors">Espaço</a>
+        <a href="#contato" class="text-zinc-300 hover:text-brand-gold transition-colors">Contato</a>
+      </nav>
+
+      <!-- CTA Desktop -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="#agendamento" class="btn-primary text-xs uppercase tracking-wider py-2.5 px-6">
+          <span>Agendar Horário</span>
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-toggle" type="button" aria-label="Abrir Menu" class="md:hidden text-zinc-300 hover:text-brand-gold p-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-black/98 z-50 hidden flex-col justify-between p-8 backdrop-blur-2xl">
+    <div class="flex items-center justify-between border-b border-zinc-800 pb-6">
+      <img src="assets/icons/logo.svg" alt="Barbearia Tô em Casa" class="h-10 w-auto">
+      <button id="mobile-menu-close" type="button" aria-label="Fechar Menu" class="text-zinc-400 hover:text-white p-2">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col space-y-6 text-xl font-display font-semibold my-auto">
+      <a href="#sobre" class="mobile-nav-link text-zinc-300 hover:text-brand-gold transition-colors">Sobre Nós</a>
+      <a href="#servicos" class="mobile-nav-link text-zinc-300 hover:text-brand-gold transition-colors">Serviços &amp; Preços</a>
+      <a href="#galeria" class="mobile-nav-link text-zinc-300 hover:text-brand-gold transition-colors">Galeria de Cortes</a>
+      <a href="#profissionais" class="mobile-nav-link text-zinc-300 hover:text-brand-gold transition-colors">Nossa Equipe</a>
+      <a href="#depoimentos" class="mobile-nav-link text-zinc-300 hover:text-brand-gold transition-colors">Depoimentos</a>
+      <a href="#localizacao" class="mobile-nav-link text-zinc-300 hover:text-brand-gold transition-colors">Localização &amp; Horários</a>
+      <a href="#contato" class="mobile-nav-link text-zinc-300 hover:text-brand-gold transition-colors">Fale Conosco</a>
+    </nav>
+
+    <div class="pt-6 border-t border-zinc-800 space-y-4">
+      <a href="#agendamento" class="mobile-nav-link btn-primary w-full text-center text-sm uppercase tracking-wider justify-center">
+        Agendar Horário Agora
+      </a>
+      <p class="text-xs text-center text-zinc-500">Terça a Sábado • 09h às 20h</p>
+    </div>
+  </div>
+
+  <main>
+    <!-- 2. Hero Section Cinematográfico com Vídeo -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      <!-- Vídeo de Fundo com Fallback -->
+      <div class="hero-video-container">
+        <video id="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1920&auto=format&fit=crop" class="hero-video-bg">
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-barber-cutting-hair-with-scissors-and-comb-41368-large.mp4" type="video/mp4">
+          <!-- Fallback Imagem colorida -->
+          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1920&auto=format&fit=crop" alt="Corte de cabelo profissional" class="w-full h-full object-cover">
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <!-- Controles de Vídeo Flutuantes -->
+      <div class="absolute bottom-10 right-6 sm:right-10 z-20 flex items-center space-x-2">
+        <button id="hero-video-sound" aria-label="Ativar som" title="Ativar som" class="p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-zinc-300 hover:text-brand-gold border border-white/10 backdrop-blur-md transition-all">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+          </svg>
+        </button>
+        <button id="hero-video-playpause" aria-label="Pausar vídeo" title="Pausar vídeo" class="p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-zinc-300 hover:text-brand-gold border border-white/10 backdrop-blur-md transition-all">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Conteúdo do Hero -->
+      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+        <div class="inline-flex items-center space-x-2 badge-gold mb-6">
+          <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+          <span>Barbearia &amp; Lounge Premium</span>
+        </div>
+
+        <h1 class="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] mb-6">
+          <span class="block split-reveal"><span class="hero-title-line inline-block">O SEU ESTILO.</span></span>
+          <span class="block split-reveal"><span class="hero-title-line inline-block text-gradient-gold">O SEU MOMENTO.</span></span>
+          <span class="block split-reveal"><span class="hero-title-line inline-block">SINTA-SE EM CASA.</span></span>
+        </h1>
+
+        <p class="hero-subtitle text-base sm:text-xl text-zinc-300 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
+          Mais que um corte de precisão: uma experiência sensorial de alto padrão com visagismo personalizado, toalha quente, chopp gelado e café artesanal.
+        </p>
+
+        <div class="hero-actions flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <a href="#agendamento" class="btn-primary w-full sm:w-auto text-sm uppercase tracking-wider py-4 px-8">
+            <span>Agendar Meu Horário</span>
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+          <a href="#servicos" class="btn-secondary w-full sm:w-auto text-sm uppercase tracking-wider py-4 px-8">
+            Explorar Serviços
+          </a>
+        </div>
+
+        <!-- Estatísticas / Destaques -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-white/10 max-w-4xl mx-auto">
+          <div class="hero-stat-item text-center">
+            <span class="block font-display font-extrabold text-2xl sm:text-3xl text-brand-gold">4.9 ★</span>
+            <span class="text-xs sm:text-sm text-zinc-400">Avaliações no Google</span>
+          </div>
+          <div class="hero-stat-item text-center">
+            <span class="block font-display font-extrabold text-2xl sm:text-3xl text-white">+5.000</span>
+            <span class="text-xs sm:text-sm text-zinc-400">Clientes Atendidos</span>
+          </div>
+          <div class="hero-stat-item text-center">
+            <span class="block font-display font-extrabold text-2xl sm:text-3xl text-brand-gold">100%</span>
+            <span class="text-xs sm:text-sm text-zinc-400">Hora Marcada</span>
+          </div>
+          <div class="hero-stat-item text-center">
+            <span class="block font-display font-extrabold text-2xl sm:text-3xl text-white">Cortesia</span>
+            <span class="text-xs sm:text-sm text-zinc-400">Craft Beer &amp; Café</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Sobre Nós -->
+    <section id="sobre" class="py-24 sm:py-32 relative bg-brand-dark/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <!-- Coluna Visual: Imagens Coloridas com Composição Asimétrica -->
+          <div class="lg:col-span-6 relative">
+            <div class="relative z-10 grid grid-cols-2 gap-4">
+              <div class="space-y-4">
+                <div class="luxury-card img-zoom-container rounded-2xl overflow-hidden shadow-2xl about-img-reveal">
+                  <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop" alt="Ambiente acolhedor da barbearia" class="w-full h-64 sm:h-80 object-cover">
+                </div>
+                <div class="p-4 rounded-xl bg-brand-surface border border-white/5">
+                  <p class="font-display font-bold text-lg text-white">Visagismo Prático</p>
+                  <p class="text-xs text-zinc-400 mt-1">Cortes desenhados para a harmonia do seu rosto e rotina.</p>
+                </div>
+              </div>
+              <div class="space-y-4 pt-8">
+                <div class="p-4 rounded-xl bg-brand-surface border border-white/5">
+                  <p class="font-display font-bold text-lg text-brand-gold">Toalha Quente</p>
+                  <p class="text-xs text-zinc-400 mt-1">Ritual de barbear tradicional com aromaterapia relaxante.</p>
+                </div>
+                <div class="luxury-card img-zoom-container rounded-2xl overflow-hidden shadow-2xl about-img-reveal">
+                  <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800&auto=format&fit=crop" alt="Barbeiro profissional em ação" class="w-full h-64 sm:h-80 object-cover">
+                </div>
+              </div>
+            </div>
+            <!-- Glow Decorativo -->
+            <div class="glow-accent top-1/4 -left-10"></div>
+          </div>
+
+          <!-- Coluna Textual: Conceito e Identidade -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="badge-gold">Nossa Essência</div>
+            <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+              Aqui você não é apenas atendido. <span class="text-gradient-gold">Você está em casa.</span>
+            </h2>
+            <p class="text-zinc-300 text-base sm:text-lg leading-relaxed about-text-reveal">
+              A <strong>Barbearia Tô em Casa</strong> nasceu da convicção de que cuidar da sua imagem pessoal não deve ser uma obrigação corrida, mas um intervalo bem-vindo no seu dia.
+            </p>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed about-text-reveal">
+              Criamos um espaço acolhedor, com poltronas vintage reclináveis, música ambiente refinada, chopp artesanal gelado e mestres da lâmina comprometidos com o detalhe milimétrico de cada contorno.
+            </p>
+
+            <!-- Pilares -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+              <div class="flex items-start space-x-3.5 p-3 rounded-lg bg-zinc-900/60 border border-zinc-800">
+                <div class="w-8 h-8 rounded-full bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center flex-shrink-0 text-brand-gold">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-sm text-white">Consultoria de Imagem</h4>
+                  <p class="text-xs text-zinc-400">Orientação sincera sobre proporções, textura e barba.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3.5 p-3 rounded-lg bg-zinc-900/60 border border-zinc-800">
+                <div class="w-8 h-8 rounded-full bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center flex-shrink-0 text-brand-gold">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-sm text-white">Zero Filas</h4>
+                  <p class="text-xs text-zinc-400">Agendamento pontual para respeitar a sua agenda.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <a href="#agendamento" class="btn-primary text-xs uppercase tracking-wider">
+                Viver a Experiência
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Serviços & Cardápio de Preços -->
+    <section id="servicos" class="py-24 sm:py-32 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="badge-gold mb-3">Cardápio Exclusivo</div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+            Serviços desenhados para a sua <span class="text-gradient-gold">melhor versão</span>.
+          </h2>
+          <p class="text-zinc-400 mt-4 text-sm sm:text-base">
+            Valores transparentes e demonstrativos. Escolha seu serviço e agende com facilidade.
+          </p>
+        </div>
+
+        <!-- Grid de Serviços -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="luxury-card p-6 flex flex-col justify-between service-card group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="badge-gold">Corte</span>
+                <span class="font-display font-bold text-2xl text-brand-gold">R$ 75</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:text-brand-gold transition-colors">
+                Corte Moderno &amp; Fade
+              </h3>
+              <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                Degradê navalhado ou na tesoura, alinhamento anatômico, lavagem especial com shampoo mentolado e finalização com produto premium.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+              <span class="text-xs text-zinc-500 flex items-center">
+                <svg class="w-3.5 h-3.5 mr-1 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                45 minutos
+              </span>
+              <a href="#agendamento" data-book-service="corte-moderno" class="text-xs font-bold uppercase tracking-wider text-brand-gold hover:text-white transition-colors flex items-center">
+                Agendar
+                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="luxury-card p-6 flex flex-col justify-between service-card group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="badge-gold">Barba</span>
+                <span class="font-display font-bold text-2xl text-brand-gold">R$ 65</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:text-brand-gold transition-colors">
+                Barboterapia &amp; Alinhamento
+              </h3>
+              <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                Toalhas quentes com óleos essenciais ozonizados, esfoliação facial, desenho na lâmina descartável e hidratação com bálsamo refrescante.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+              <span class="text-xs text-zinc-500 flex items-center">
+                <svg class="w-3.5 h-3.5 mr-1 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                40 minutos
+              </span>
+              <a href="#agendamento" data-book-service="barba-terapia" class="text-xs font-bold uppercase tracking-wider text-brand-gold hover:text-white transition-colors flex items-center">
+                Agendar
+                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 (Destaque Combo) -->
+          <div class="luxury-card p-6 flex flex-col justify-between service-card group border-brand-gold/40 bg-zinc-900/90 relative">
+            <div class="absolute -top-3 right-6 bg-brand-gold text-black text-[10px] font-extrabold uppercase px-3 py-1 rounded-full tracking-wider">
+              Mais Escolhido
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="badge-gold">Experiência Completa</span>
+                <span class="font-display font-bold text-2xl text-brand-gold">R$ 125</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:text-brand-gold transition-colors">
+                Combo Tô em Casa
+              </h3>
+              <p class="text-sm text-zinc-300 mb-6 leading-relaxed">
+                A junção perfeita de corte completo + barboterapia com toalha quente + sobrancelha + chopp artesanal ou espresso duplo à vontade.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+              <span class="text-xs text-zinc-500 flex items-center">
+                <svg class="w-3.5 h-3.5 mr-1 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                1h 15 min
+              </span>
+              <a href="#agendamento" data-book-service="combo-to-em-casa" class="text-xs font-bold uppercase tracking-wider text-brand-gold hover:text-white transition-colors flex items-center">
+                Agendar
+                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="luxury-card p-6 flex flex-col justify-between service-card group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="badge-gold">Acabamento</span>
+                <span class="font-display font-bold text-2xl text-brand-gold">R$ 35</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:text-brand-gold transition-colors">
+                Pezinho &amp; Sobrancelha
+              </h3>
+              <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                Manutenção dos contornos com navalhete para quem quer manter o corte impecável entre as visitas completas.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+              <span class="text-xs text-zinc-500 flex items-center">
+                <svg class="w-3.5 h-3.5 mr-1 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                20 minutos
+              </span>
+              <a href="#agendamento" data-book-service="acabamento-pezinho" class="text-xs font-bold uppercase tracking-wider text-brand-gold hover:text-white transition-colors flex items-center">
+                Agendar
+                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="luxury-card p-6 flex flex-col justify-between service-card group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="badge-gold">Cuidado Capilar</span>
+                <span class="font-display font-bold text-2xl text-brand-gold">R$ 90</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:text-brand-gold transition-colors">
+                Spa Capilar &amp; Relaxamento
+              </h3>
+              <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                Esfoliação profunda do couro cabeludo, hidratação reconstrutora com ozonioterapia e massagem craniana relaxante.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+              <span class="text-xs text-zinc-500 flex items-center">
+                <svg class="w-3.5 h-3.5 mr-1 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                50 minutos
+              </span>
+              <a href="#agendamento" data-book-service="spa-capilar" class="text-xs font-bold uppercase tracking-wider text-brand-gold hover:text-white transition-colors flex items-center">
+                Agendar
+                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="luxury-card p-6 flex flex-col justify-between service-card group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="badge-gold">Cor &amp; Barba</span>
+                <span class="font-display font-bold text-2xl text-brand-gold">R$ 55</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:text-brand-gold transition-colors">
+                Camuflagem de Grisalhos
+              </h3>
+              <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                Efeito sutil e natural para atenuar fios brancos da barba ou cabelo sem aspecto artificial ou tintura pesada.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+              <span class="text-xs text-zinc-500 flex items-center">
+                <svg class="w-3.5 h-3.5 mr-1 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                30 minutos
+              </span>
+              <a href="#agendamento" data-book-service="corte-moderno" class="text-xs font-bold uppercase tracking-wider text-brand-gold hover:text-white transition-colors flex items-center">
+                Agendar
+                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Galeria de Trabalhos Realizados -->
+    <section id="galeria" class="py-24 sm:py-32 bg-brand-dark/40 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <div class="badge-gold mb-3">Portfolio Real</div>
+            <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+              A precisão em cada <span class="text-gradient-gold">detalhe</span>.
+            </h2>
+            <p class="text-zinc-400 mt-3 text-sm sm:text-base max-w-xl">
+              Fotografias reais dos nossos trabalhos diários. Clique em qualquer foto para ampliar.
+            </p>
+          </div>
+
+          <!-- Filtros de Galeria -->
+          <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+            <button type="button" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-bold border transition-colors bg-brand-gold text-black border-brand-gold" data-filter="all">Todos</button>
+            <button type="button" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-bold border transition-colors bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-700" data-filter="cortes">Cortes</button>
+            <button type="button" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-bold border transition-colors bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-700" data-filter="barba">Barbas</button>
+            <button type="button" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-bold border transition-colors bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-700" data-filter="estilo">Espaço</button>
+          </div>
+        </div>
+
+        <!-- Grid de Fotos Coloridas Naturais em Alta Resolução -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-container">
+          <!-- Item 1 -->
+          <div class="gallery-item luxury-card img-zoom-container rounded-2xl cursor-pointer group" data-category="cortes">
+            <div class="relative aspect-[4/5] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1517832606589-7629c6ae83bb?q=80&w=800&auto=format&fit=crop" alt="Corte Mid Fade com textura" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                  <span class="badge-gold mb-1">Cortes</span>
+                  <p class="gallery-overlay-caption font-display font-bold text-white text-lg">Mid Fade Texturizado</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="gallery-item luxury-card img-zoom-container rounded-2xl cursor-pointer group" data-category="barba">
+            <div class="relative aspect-[4/5] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" alt="Barba alinhada com navalha" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                  <span class="badge-gold mb-1">Barbas</span>
+                  <p class="gallery-overlay-caption font-display font-bold text-white text-lg">Barba Lenhador Alinhada</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="gallery-item luxury-card img-zoom-container rounded-2xl cursor-pointer group" data-category="cortes">
+            <div class="relative aspect-[4/5] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop" alt="Corte Clássico na Tesoura" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                  <span class="badge-gold mb-1">Cortes</span>
+                  <p class="gallery-overlay-caption font-display font-bold text-white text-lg">Executive Scissor Cut</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="gallery-item luxury-card img-zoom-container rounded-2xl cursor-pointer group" data-category="estilo">
+            <div class="relative aspect-[4/5] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop" alt="Poltrona de couro e ambiente Tô em Casa" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                  <span class="badge-gold mb-1">Espaço</span>
+                  <p class="gallery-overlay-caption font-display font-bold text-white text-lg">Lounge &amp; Poltronas Vintage</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="gallery-item luxury-card img-zoom-container rounded-2xl cursor-pointer group" data-category="barba">
+            <div class="relative aspect-[4/5] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" alt="Acabamento de costeleta e barba desenhada" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                  <span class="badge-gold mb-1">Barbas</span>
+                  <p class="gallery-overlay-caption font-display font-bold text-white text-lg">Contorno com Navalhete</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="gallery-item luxury-card img-zoom-container rounded-2xl cursor-pointer group" data-category="cortes">
+            <div class="relative aspect-[4/5] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=800&auto=format&fit=crop" alt="Pompadour Moderno" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                  <span class="badge-gold mb-1">Cortes</span>
+                  <p class="gallery-overlay-caption font-display font-bold text-white text-lg">Pompadour Moderno</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Lightbox da Galeria -->
+    <div id="gallery-lightbox" class="lightbox-modal">
+      <div class="relative max-w-4xl w-full p-4 flex flex-col items-center">
+        <button id="lightbox-close" type="button" aria-label="Fechar Foto" class="absolute -top-12 right-4 text-white hover:text-brand-gold text-3xl font-light focus:outline-none">
+          &times;
+        </button>
+        <img id="lightbox-img" src="" alt="Imagem ampliada" class="max-h-[80vh] w-auto rounded-xl object-contain shadow-2xl border border-white/10">
+        <p id="lightbox-caption" class="text-zinc-300 text-sm font-display mt-4 tracking-wide"></p>
+      </div>
+    </div>
+
+    <!-- 6. Profissionais / Barbeiros -->
+    <section id="profissionais" class="py-24 sm:py-32 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="badge-gold mb-3">Mestres da Lâmina</div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+            Especialistas que entendem o seu <span class="text-gradient-gold">formato de rosto</span>.
+          </h2>
+          <p class="text-zinc-400 mt-4 text-sm sm:text-base">
+            Equipe com formação em academias internacionais de barbearia e compromisso inegociável com a sua satisfação.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Barbeiro 1 -->
+          <div class="luxury-card p-6 barber-card flex flex-col items-center text-center">
+            <div class="relative w-36 h-36 rounded-full overflow-hidden mb-6 border-2 border-brand-gold/40 shadow-xl">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop" alt="Carlos Mendes" class="w-full h-full object-cover">
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-1">Carlos Mendes</h3>
+            <p class="text-xs font-semibold text-brand-gold uppercase tracking-wider mb-3">Master Barber &amp; Fade</p>
+            <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+              8 anos de experiência. Especialista em degradê milimétrico, navalhado livre e cortes texturizados modernos.
+            </p>
+            <a href="#agendamento" data-book-barber="carlos-mendes" class="btn-secondary w-full text-xs uppercase tracking-wider justify-center">
+              Agendar com Carlos
+            </a>
+          </div>
+
+          <!-- Barbeiro 2 -->
+          <div class="luxury-card p-6 barber-card flex flex-col items-center text-center border-brand-gold/30">
+            <div class="relative w-36 h-36 rounded-full overflow-hidden mb-6 border-2 border-brand-gold shadow-xl">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=500&auto=format&fit=crop" alt="Rafael Silva" class="w-full h-full object-cover">
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-1">Rafael Silva</h3>
+            <p class="text-xs font-semibold text-brand-gold uppercase tracking-wider mb-3">Visagista &amp; Barboterapia</p>
+            <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+              10 anos de bancada. Mestre no desenho anatômico de barba, aromaterapia e alinhamento de contornos faciais.
+            </p>
+            <a href="#agendamento" data-book-barber="rafael-silva" class="btn-primary w-full text-xs uppercase tracking-wider justify-center">
+              Agendar com Rafael
+            </a>
+          </div>
+
+          <!-- Barbeiro 3 -->
+          <div class="luxury-card p-6 barber-card flex flex-col items-center text-center">
+            <div class="relative w-36 h-36 rounded-full overflow-hidden mb-6 border-2 border-brand-gold/40 shadow-xl">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=500&auto=format&fit=crop" alt="Bruno Castro" class="w-full h-full object-cover">
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-1">Bruno Castro</h3>
+            <p class="text-xs font-semibold text-brand-gold uppercase tracking-wider mb-3">Cortes Clássicos &amp; Tesoura</p>
+            <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+              6 anos de dedicação à tesoura tradicional inglesa, estilo executivo, penteado pompadour e hidratação capilar.
+            </p>
+            <a href="#agendamento" data-book-barber="bruno-castro" class="btn-secondary w-full text-xs uppercase tracking-wider justify-center">
+              Agendar com Bruno
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Depoimentos de Clientes -->
+    <section id="depoimentos" class="py-24 sm:py-32 bg-brand-dark/50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="badge-gold mb-3">Experiência Comprovada</div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+            O que diz quem já se sente <span class="text-gradient-gold">em casa</span>.
+          </h2>
+          <p class="text-zinc-400 mt-4 text-sm sm:text-base">
+            Depoimentos demonstrativos de clientes assíduos que valorizam pontualidade e excelência.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Avaliação 1 -->
+          <div class="luxury-card p-8 review-card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center text-brand-gold mb-4 text-sm">
+                ★★★★★
+                <span class="ml-2 text-xs text-zinc-400 font-medium">5.0 / 5.0</span>
+              </div>
+              <p class="text-zinc-300 text-sm leading-relaxed mb-6 italic">
+                “Ambiente fora de série! O atendimento do Rafael na barba com toalha quente é um verdadeiro spa. O chopp artesanal gelado na chegada fecha com chave de ouro.”
+              </p>
+            </div>
+            <div class="flex items-center space-x-3 pt-4 border-t border-zinc-800">
+              <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200&auto=format&fit=crop" alt="Marcelo Duarte" class="w-11 h-11 rounded-full object-cover border border-brand-gold/40">
+              <div>
+                <h4 class="font-display font-bold text-sm text-white">Marcelo Duarte</h4>
+                <p class="text-xs text-zinc-500">Cliente há 2 anos • Executivo</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Avaliação 2 -->
+          <div class="luxury-card p-8 review-card flex flex-col justify-between border-brand-gold/30">
+            <div>
+              <div class="flex items-center text-brand-gold mb-4 text-sm">
+                ★★★★★
+                <span class="ml-2 text-xs text-zinc-400 font-medium">5.0 / 5.0</span>
+              </div>
+              <p class="text-zinc-300 text-sm leading-relaxed mb-6 italic">
+                “Pontualidade britânica. Marquei para às 14h, e às 14h em ponto sentei na cadeira. O Carlos acertou em cheio o visagismo do meu fade. Não troco mais de barbearia.”
+              </p>
+            </div>
+            <div class="flex items-center space-x-3 pt-4 border-t border-zinc-800">
+              <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=200&auto=format&fit=crop" alt="Thiago Rossi" class="w-11 h-11 rounded-full object-cover border border-brand-gold">
+              <div>
+                <h4 class="font-display font-bold text-sm text-white">Thiago Rossi</h4>
+                <p class="text-xs text-zinc-500">Cliente há 1 ano • Arquiteto</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Avaliação 3 -->
+          <div class="luxury-card p-8 review-card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center text-brand-gold mb-4 text-sm">
+                ★★★★★
+                <span class="ml-2 text-xs text-zinc-400 font-medium">5.0 / 5.0</span>
+              </div>
+              <p class="text-zinc-300 text-sm leading-relaxed mb-6 italic">
+                “O nome 'Tô em Casa' faz total sentido. Você entra estressado do trânsito e sai renovado. Espaço limpo, cheiroso, música de bom gosto e barbeiros de altíssimo nível.”
+              </p>
+            </div>
+            <div class="flex items-center space-x-3 pt-4 border-t border-zinc-800">
+              <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=200&auto=format&fit=crop" alt="Guilherme Faria" class="w-11 h-11 rounded-full object-cover border border-brand-gold/40">
+              <div>
+                <h4 class="font-display font-bold text-sm text-white">Guilherme Faria</h4>
+                <p class="text-xs text-zinc-500">Cliente Mensal • Empreendedor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Agendamento Interativo (Wizard de 4 Etapas) -->
+    <section id="agendamento" class="py-24 sm:py-32 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <div class="badge-gold mb-3">Reserva Online</div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+            Reserve seu horário em <span class="text-gradient-gold">poucos cliques</span>.
+          </h2>
+          <p class="text-zinc-400 mt-3 text-sm sm:text-base">
+            Escolha seu serviço, profissional, data e horário conveniente. Rápido e prático.
+          </p>
+        </div>
+
+        <!-- Box Principal do Wizard -->
+        <div class="luxury-card p-6 sm:p-10 border-brand-gold/25 shadow-2xl relative">
+          <!-- Barra de Etapas (Step Progress) -->
+          <div class="flex items-center justify-between mb-10 relative">
+            <div class="step-item active" data-step-target="1">
+              <div class="step-circle">1</div>
+              <span class="text-xs font-semibold mt-2 text-zinc-300 hidden sm:block">Serviço</span>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-item" data-step-target="2">
+              <div class="step-circle">2</div>
+              <span class="text-xs font-semibold mt-2 text-zinc-300 hidden sm:block">Profissional</span>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-item" data-step-target="3">
+              <div class="step-circle">3</div>
+              <span class="text-xs font-semibold mt-2 text-zinc-300 hidden sm:block">Data &amp; Hora</span>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-item" data-step-target="4">
+              <div class="step-circle">4</div>
+              <span class="text-xs font-semibold mt-2 text-zinc-300 hidden sm:block">Confirmação</span>
+            </div>
+          </div>
+
+          <!-- Conteúdo da Etapa 1: Seleção de Serviços -->
+          <div id="booking-step-1" class="booking-step-content space-y-4">
+            <h3 class="font-display font-bold text-xl text-white mb-2">1. Escolha o serviço desejado:</h3>
+            <div id="step-services-list" class="space-y-3">
+              <!-- Renderizado dinamicamente via booking.js -->
+            </div>
+          </div>
+
+          <!-- Conteúdo da Etapa 2: Seleção de Barbeiro -->
+          <div id="booking-step-2" class="booking-step-content space-y-4 hidden">
+            <h3 class="font-display font-bold text-xl text-white mb-2">2. Escolha o profissional:</h3>
+            <div id="step-barbers-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Renderizado dinamicamente via booking.js -->
+            </div>
+          </div>
+
+          <!-- Conteúdo da Etapa 3: Seleção de Data & Horário -->
+          <div id="booking-step-3" class="booking-step-content space-y-6 hidden">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="font-display font-bold text-xl text-white">3. Escolha o dia:</h3>
+                <span id="calendar-month-label" class="text-xs font-bold uppercase tracking-wider text-brand-gold"></span>
+              </div>
+              <!-- Grid dos dias -->
+              <div id="calendar-days-container" class="grid grid-cols-7 gap-2 overflow-x-auto pb-2">
+                <!-- Renderizado dinamicamente via booking.js -->
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-display font-bold text-base text-white mb-3">Horários disponíveis:</h4>
+              <div id="time-slots-container">
+                <!-- Renderizado dinamicamente via booking.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Conteúdo da Etapa 4: Resumo & Dados do Cliente -->
+          <div id="booking-step-4" class="booking-step-content space-y-6 hidden">
+            <h3 class="font-display font-bold text-xl text-white mb-1">4. Seus dados para confirmação:</h3>
+            
+            <!-- Resumo da Reserva -->
+            <div id="booking-summary-box">
+              <!-- Renderizado dinamicamente via booking.js -->
+            </div>
+
+            <form id="booking-final-form" class="space-y-4">
+              <div>
+                <label for="client-name" class="block text-xs uppercase font-bold text-zinc-400 mb-1.5">Seu Nome Completo *</label>
+                <input type="text" id="client-name" required placeholder="Ex: Gabriel Mourisco" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors">
+              </div>
+
+              <div>
+                <label for="client-phone" class="block text-xs uppercase font-bold text-zinc-400 mb-1.5">WhatsApp / Telefone *</label>
+                <input type="tel" id="client-phone" required placeholder="Ex: (11) 98765-4321" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors">
+              </div>
+
+              <div>
+                <label for="client-notes" class="block text-xs uppercase font-bold text-zinc-400 mb-1.5">Observações ou Preferências (Opcional)</label>
+                <textarea id="client-notes" rows="2" placeholder="Ex: Preferência por corte baixo nas laterais ou toalha bem quente." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors"></textarea>
+              </div>
+
+              <div class="pt-2">
+                <button type="submit" class="btn-primary w-full py-4 text-sm uppercase tracking-wider justify-center">
+                  <span>Confirmar &amp; Agendar via WhatsApp</span>
+                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Botões de Ação do Wizard (Próximo / Voltar) -->
+          <div id="booking-nav-actions" class="flex items-center justify-between pt-8 mt-8 border-t border-zinc-800">
+            <button type="button" id="booking-btn-prev" class="btn-secondary text-xs uppercase tracking-wider invisible">
+              &larr; Voltar
+            </button>
+            <button type="button" id="booking-btn-next" class="btn-primary text-xs uppercase tracking-wider">
+              <span>Continuar</span>
+              <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de Confirmação de Agendamento -->
+    <div id="booking-success-modal" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4 backdrop-blur-md">
+      <div class="luxury-card max-w-md w-full p-8 text-center border-brand-gold animate-fadeIn">
+        <div class="w-16 h-16 rounded-full bg-brand-gold/20 text-brand-gold border border-brand-gold flex items-center justify-center mx-auto mb-5">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="font-display font-extrabold text-2xl text-white mb-2">Agendamento Realizado!</h3>
+        <p class="text-zinc-300 text-sm mb-6 leading-relaxed">
+          Sua pré-reserva foi criada com sucesso. Clique no botão abaixo para enviar o comprovante direto para o nosso WhatsApp e confirmar seu horário.
+        </p>
+        <div class="space-y-3">
+          <a id="btn-confirm-whatsapp" href="#" target="_blank" class="btn-primary w-full justify-center text-xs uppercase tracking-wider py-3.5">
+            Abrir WhatsApp da Barbearia
+          </a>
+          <button type="button" onclick="resetBookingFlow()" class="btn-secondary w-full justify-center text-xs uppercase tracking-wider py-3">
+            Fazer Novo Agendamento
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Localização & Espaço Físico -->
+    <section id="localizacao" class="py-24 sm:py-32 bg-brand-dark/40 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Informações de Endereço e Horários -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="badge-gold">Venha nos Conhecer</div>
+            <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+              Localização privilegiada com <span class="text-gradient-gold">fácil acesso</span>.
+            </h2>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+              Estamos situados em ponto nobre e de fácil estacionamento, projetado para que você chegue sem preocupações de trânsito.
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <div class="flex items-start space-x-3 text-sm">
+                <div class="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white">Endereço</h4>
+                  <p class="text-zinc-400">Rua das Acácias, 480 — Jardim Paulistano</p>
+                  <p class="text-zinc-500 text-xs">São Paulo — SP (Placeholder editável)</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 text-sm">
+                <div class="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white">Horário de Funcionamento</h4>
+                  <p class="text-zinc-400">Terça a Sexta: 09h00 às 20h00</p>
+                  <p class="text-zinc-400">Sábado: 08h30 às 19h00</p>
+                  <p class="text-zinc-500 text-xs">Domingo e Segunda: Fechado para descanso da equipe</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Comodidades / Amenities -->
+            <div class="pt-4 border-t border-zinc-800">
+              <h4 class="text-xs uppercase font-bold text-zinc-400 tracking-wider mb-3">Comodidades do Espaço:</h4>
+              <div class="grid grid-cols-2 gap-2 text-xs text-zinc-300">
+                <div class="flex items-center space-x-2">
+                  <span class="text-brand-gold">✓</span>
+                  <span>Estacionamento cortesia</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <span class="text-brand-gold">✓</span>
+                  <span>Wi-Fi 6 de alta velocidade</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <span class="text-brand-gold">✓</span>
+                  <span>Chopp artesanal &amp; Espresso</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <span class="text-brand-gold">✓</span>
+                  <span>Ambiente 100% climatizado</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mapa Estilizado / Container Interativo -->
+          <div class="lg:col-span-7">
+            <div class="luxury-card overflow-hidden rounded-2xl border border-zinc-800 relative aspect-[16/10] bg-zinc-900 shadow-2xl">
+              <!-- Mapa Interativo Ilustrado com Estética Dark Minimalist -->
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197576558485!2d-46.65657118447547!3d-23.561349584682705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" 
+                width="100%" 
+                height="100%" 
+                style="border:0; filter: grayscale(100%) invert(92%) contrast(85%);" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa da Barbearia Tô em Casa">
+              </iframe>
+              <div class="absolute bottom-4 left-4 bg-brand-black/90 border border-brand-gold/30 px-4 py-2.5 rounded-xl backdrop-blur-md">
+                <p class="text-xs font-bold text-white">Barbearia Tô em Casa</p>
+                <p class="text-[11px] text-zinc-400">Clique para abrir no Google Maps</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Contato & Atendimento -->
+    <section id="contato" class="py-24 sm:py-32 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <!-- Coluna 1: Canais Diretos -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="badge-gold">Fale Conosco</div>
+            <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+              Dúvidas ou agendamentos em grupo? <span class="text-gradient-gold">Estamos aqui.</span>
+            </h2>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+              Atendimento personalizado para dia do noivo, eventos corporativos ou reservas de horários especiais.
+            </p>
+
+            <div class="space-y-4 pt-4">
+              <!-- WhatsApp Card -->
+              <a href="https://wa.me/5511999999999" target="_blank" class="luxury-card p-4 flex items-center space-x-4 group block">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 flex-shrink-0 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.961.936 2.796.936 3.182 0 5.768-2.587 5.768-5.768 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.767c0 5.518-4.482 10-10 10-1.748 0-3.385-.45-4.819-1.239l-4.181 1.093 1.114-4.072c-.859-1.488-1.354-3.218-1.354-5.062 0-5.518 4.482-10 10-10 5.518 0 10 4.482 10 10z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-white text-base">WhatsApp Direto</h4>
+                  <p class="text-xs text-zinc-400">(11) 99999-9999 • Resposta em minutos</p>
+                </div>
+              </a>
+
+              <!-- Instagram Card -->
+              <a href="https://instagram.com" target="_blank" class="luxury-card p-4 flex items-center space-x-4 group block">
+                <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 flex-shrink-0 group-hover:bg-pink-500 group-hover:text-black transition-colors">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-white text-base">Instagram</h4>
+                  <p class="text-xs text-zinc-400">@barbeariatoemcasa • Vídeos de bastidores</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Coluna 2: Formulário de Mensagem Rápida -->
+          <div class="lg:col-span-7">
+            <div class="luxury-card p-8 sm:p-10 border-zinc-800">
+              <h3 class="font-display font-bold text-2xl text-white mb-2">Envie uma mensagem</h3>
+              <p class="text-sm text-zinc-400 mb-6">Preencha o formulário abaixo e nossa equipe responderá em breve.</p>
+
+              <form id="contact-form" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="contact-name" class="block text-xs uppercase font-bold text-zinc-400 mb-1.5">Nome *</label>
+                    <input type="text" id="contact-name" required placeholder="Seu nome" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors">
+                  </div>
+                  <div>
+                    <label for="contact-phone" class="block text-xs uppercase font-bold text-zinc-400 mb-1.5">Telefone / WhatsApp *</label>
+                    <input type="tel" id="contact-phone" required placeholder="(11) 99999-9999" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors">
+                  </div>
+                </div>
+
+                <div>
+                  <label for="contact-subject" class="block text-xs uppercase font-bold text-zinc-400 mb-1.5">Assunto</label>
+                  <select id="contact-subject" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors">
+                    <option value="duvida">Dúvidas sobre serviços</option>
+                    <option value="evento">Dia do Noivo / Evento fechado</option>
+                    <option value="parceria">Parcerias e comercial</option>
+                    <option value="outro">Outro assunto</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="contact-message" class="block text-xs uppercase font-bold text-zinc-400 mb-1.5">Mensagem *</label>
+                  <textarea id="contact-message" rows="4" required placeholder="Como podemos te ajudar?" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary w-full py-3.5 text-xs uppercase tracking-wider justify-center">
+                  Enviar Mensagem
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 11. Footer -->
+  <footer class="bg-black border-t border-zinc-800/80 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <!-- Coluna 1: Marca -->
+        <div class="space-y-4">
+          <img src="assets/icons/logo.svg" alt="Barbearia Tô em Casa" class="h-12 w-auto">
+          <p class="text-xs text-zinc-400 leading-relaxed max-w-sm">
+            Estilo contemporâneo, visagismo e rituais tradicionais de barbearia com a hospitalidade que faz você se sentir em casa.
+          </p>
+          <div class="text-xs text-brand-gold font-semibold">
+            Segurança, Conforto &amp; Tradição
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação Rápida -->
+        <div>
+          <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Navegação</h4>
+          <ul class="space-y-2.5 text-xs text-zinc-400">
+            <li><a href="#hero" class="hover:text-brand-gold transition-colors">Início</a></li>
+            <li><a href="#sobre" class="hover:text-brand-gold transition-colors">Sobre Nós</a></li>
+            <li><a href="#servicos" class="hover:text-brand-gold transition-colors">Serviços &amp; Preços</a></li>
+            <li><a href="#galeria" class="hover:text-brand-gold transition-colors">Galeria de Fotos</a></li>
+            <li><a href="#profissionais" class="hover:text-brand-gold transition-colors">Nossos Barbeiros</a></li>
+            <li><a href="#agendamento" class="hover:text-brand-gold transition-colors">Agendar Horário</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Horários -->
+        <div>
+          <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Atendimento</h4>
+          <ul class="space-y-2.5 text-xs text-zinc-400">
+            <li class="flex justify-between">
+              <span>Terça a Sexta:</span>
+              <span class="text-white font-medium">09h às 20h</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Sábado:</span>
+              <span class="text-white font-medium">08h30 às 19h</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Domingo e Segunda:</span>
+              <span class="text-zinc-500">Fechado</span>
+            </li>
+          </ul>
+          <div class="mt-4 p-3 rounded-lg bg-zinc-900 border border-zinc-800">
+            <p class="text-[11px] text-zinc-400">Atendimento 100% com hora marcada.</p>
+          </div>
+        </div>
+
+        <!-- Coluna 4: Contato & Local -->
+        <div>
+          <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Contato Direto</h4>
+          <ul class="space-y-2.5 text-xs text-zinc-400">
+            <li>Rua das Acácias, 480 — São Paulo/SP</li>
+            <li>WhatsApp: (11) 99999-9999</li>
+            <li>contato@barbeariatoemcasa.com.br</li>
+          </ul>
+          <div class="mt-4">
+            <a href="#agendamento" class="btn-primary w-full text-center text-xs uppercase tracking-wider justify-center py-2.5">
+              Agendamento Online
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500">
+        <p>&copy; 2026 Barbearia Tô em Casa. Todos os direitos reservados.</p>
+        <p class="mt-2 sm:mt-0">Design Modern Minimalism &amp; Luxury Grooming</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts GSAP & ScrollTrigger via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Scripts do Projeto -->
+  <script src="js/animations.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

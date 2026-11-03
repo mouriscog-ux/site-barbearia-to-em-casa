@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" fill="none">
+  <!-- Monograma Geométrico TÔ EM CASA -->
+  <g transform="translate(10, 10)">
+    <!-- Silhueta Minimalista da Casa / Telhado -->
+    <path d="M30 4 L56 24 L50 24 L50 56 L10 56 L10 24 L4 24 Z" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9" />
+    
+    <!-- Linha Interna / Navalhete Geométrico -->
+    <path d="M30 14 L30 46" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+    <circle cx="30" cy="46" r="3" fill="#D4AF37" />
+    
+    <!-- Toque de Corte / Lâmina Minimalista -->
+    <path d="M22 28 L38 28" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round" />
+  </g>
+
+  <!-- Tipografia da Marca -->
+  <g transform="translate(85, 42)">
+    <text font-family="'Syne', 'Montserrat', sans-serif" font-size="24" font-weight="800" letter-spacing="4" fill="#FFFFFF">
+      TÔ EM CASA
+    </text>
+    <text y="18" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600" letter-spacing="6" fill="#D4AF37" opacity="0.9">
+      BARBEARIA &amp; LOUNGE
+    </text>
+  </g>
+</svg>
